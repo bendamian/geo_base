@@ -17,7 +17,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG') 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['107.189.28.5']
 
 
 # Application definition
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     "corsheaders",
     'djoser',
     'backend',
+    'frontend',
 ]
 
 MIDDLEWARE = [
@@ -50,11 +51,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,6 +123,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [STATIC_DIR, ]
+
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
