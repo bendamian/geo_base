@@ -8,5 +8,24 @@ function init() {
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
   // featch api get request
-  
+  const fetchGetRequest = async (url, func) => {
+    try {
+      const response = await fetch(url);
+      const json = await response.json();
+      return func(json);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const addToMapp = json => {
+    L.geoJSON(json, {}).addTo(map);
+  };
+
+  //fetchGetRequest("/backend/areas/", addToMapp);
+  fetchGetRequest("/backend/sight", addToMapp);
+
+
+
+ // end of initialization 
 }
