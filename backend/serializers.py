@@ -1,4 +1,4 @@
-from .models import Category, Sight
+from .models import Category, Sight,Area
 from rest_framework import serializers
 from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
@@ -18,3 +18,18 @@ class SightSerializer(GeoFeatureModelSerializer):
         model = Sight
         geo_field = 'point_geom'
         fields = ('pk', 'category', 'name','city', 'slug')
+
+
+
+
+
+    
+    
+  
+class AreaSerializer(GeoFeatureModelSerializer):
+    category = serializers.SlugRelatedField(queryset=Category.objects.all(), slug_field='name')
+
+    class Meta:
+        model = Area
+        geo_field = 'boundary'
+        fields = ('pk', 'category', 'name', 'boundary','image','city','county', 'active')
