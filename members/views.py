@@ -25,7 +25,7 @@ def login_user(request):
     
     
    
-    context = {'loginform': form}
+    context = {'form': form}
     return render(request, './registration/login.html', context=context)
 
 
