@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.template import loader
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from . forms import CreateUserForm, LoginForm
+from . forms import CreateUserForm, LoginForm,SignupForm
 # Create your views here.
 
 
@@ -33,3 +33,19 @@ def dashbord(request):
 
     context = {}
     return render(request, './registration/dashbord.html',context) 
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('/members/login_user/')
+    else:
+        form = SignupForm()
+
+    return render(request, './registration/register.html', {
+        'form': form
+    })
