@@ -13,7 +13,8 @@ def world_view(request,*args,**kwargs):
     context={}
     return render(request,'./frontend/pages/world.html',context) 
 
-@login_required
+
+@login_required(login_url="/members/login_user/")
 def create_area(request):
     if request.method == 'POST':
         form = AreaForm(request.POST)
