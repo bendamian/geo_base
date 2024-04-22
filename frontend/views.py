@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from django.contrib.auth.decorators import login_required
 from backend.models import Category,Sight,Area
 from .forms import AreaForm
 from django.urls import path
@@ -12,7 +13,7 @@ def world_view(request,*args,**kwargs):
     context={}
     return render(request,'./frontend/pages/world.html',context) 
 
-
+@login_required
 def create_area(request):
     if request.method == 'POST':
         form = AreaForm(request.POST)
