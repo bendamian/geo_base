@@ -4,24 +4,21 @@
 {%block title%} Register   {%endblock title%}
 
 {% block content %}
-<h1>Login</h1>
-<div style="margin:10%; ">
-   <div class=" container  mb-3">
-    <div class="border p-4 rounded">
-  <div class="input-group mb-3 ">
-    <form method="POST">
-   {% csrf_token %}
-    {{ form.as_p }}
-     </br>
-     <div>
-    <button type="submit" class="btn btn-primary">Register</button>
-         </div>
 
-</form>
-      </div>
-      </div>
-      </div>
+<h1 class="display-4 text-center mb-4 ">Register</h1>
+
+<div class="container-fluid"> <!-- Use container-fluid for a full-width container -->
+    <div class="row justify-content-center"> <!-- Use row and justify-content-center to center the content -->
+        <div class="col-md-8 col-lg-6"> <!-- Adjust column width based on screen size -->
+            <div class="border p-4 rounded">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary mt-3">Register</button> <!-- Add margin-top for spacing -->
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-
 
 {% endblock %}

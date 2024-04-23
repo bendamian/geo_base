@@ -1,22 +1,21 @@
 
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm,UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from django.contrib.auth.models import User
 
 from django import forms
 
-from django.forms.widgets import PasswordInput,TextInput
-#create a new user 
+from django.forms.widgets import PasswordInput, TextInput
+# create a new user
 
 
 class UpdateUserForm(UserChangeForm):
     password = None
 
+    first_name = forms.CharField(label="First Name", max_length=100, widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'First Name'}), required=False)
 
-    first_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(
-    attrs={'class': 'form-control', 'placeholder': 'First Name'}), required=False)
-
-    last_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(
-    attrs={'class': 'form-control', 'placeholder': 'Last Name'}), required=False)
+    last_name = forms.CharField(label="Last Name", max_length=100, widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Last Name'}), required=False)
 
     username = forms.CharField(
         label="Username",
@@ -33,19 +32,9 @@ class UpdateUserForm(UserChangeForm):
         })
     )
 
-
     class Meta:
         model = User
         fields = ('username', 'email', 'first_name', 'last_name')
-
-
-
-
-
-
-
-
-
 
 
 # - Authenticate a user
@@ -81,10 +70,8 @@ class SignupForm(UserCreationForm):
     first_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(
         attrs={'class': 'form-control', 'placeholder': 'First Name'}))
 
-
     last_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(
-    attrs={'class': 'form-control', 'placeholder': 'Last Name'}))
-
+        attrs={'class': 'form-control', 'placeholder': 'Last Name'}))
 
     password1 = forms.CharField(
         label="Password",
