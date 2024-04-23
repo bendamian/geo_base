@@ -1,10 +1,29 @@
 from django.shortcuts import render, redirect
 from django.template import loader
 from django.contrib.auth.models import auth
+from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from . forms import CreateUserForm, LoginForm,SignupForm
+from . forms import LoginForm, SignupForm ,UpdateUserForm
 # Create your views here.
+
+
+def update_user(request):
+	if request.user.is_authenticated:
+		current_user = User.objects.get(id=request.user.id)
+		form = UpdateUserForm(request.POST or None, instance=current_user)
+
+		if form.is_valid():
+			form.save()
+
+			login(request, current_user)
+			messages.success(request, "User Has Been Updated!!")
+			return redirect('/')
+		return render(request, "./registration/update_user.html", {'form': form})
+	else:
+		messages.success(request, "You Must Be Logged In To Access That Page!!")
+		return redirect('/')
+
 
 
 def login_user(request):
