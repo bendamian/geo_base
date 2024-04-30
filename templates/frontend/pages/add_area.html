@@ -1,30 +1,57 @@
-{% extends './base.html' %} {%load static%} {% block content %}
+{% extends './base.html' %}
+{% load static %}
 
+{% block title %}
+  Add Area Detail
+{% endblock title %}
 
+{% block content %}
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header bg-primary text-white ">
+             <h3 class="text-center mb-0">Add Area Detail</h3>
+            </div>
 
-
-  {{ form.media }}
-
-
-
-
-<div style="margin:10%; ">
-   <div class=" container  mb-3">
-    <div class="border p-4 rounded">
-  <div class="input-group mb-3 ">
-    <form method="POST">
-   {% csrf_token %}
-    {{ form.as_p }}
-     </br>
-     <div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-         </div>
-
-</form>
+          <div class="card-body">
+           <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{ form.media }}
+              <div class="mb-3">
+                <label for="category" class="form-label fw-bold">Category:</label>
+                {{ form.category }}
+              </div>
+              <div class="mb-3">
+                <label for="name" class="form-label fw-bold">Location Name:</label>
+                {{ form.name }}
+                <small id="nameHelp" class="form-text text-muted">{{ form.name.help_text }}</small>
+              </div>
+              <div class="mb-3">
+                <label for="boundary" class="form-label fw-bold">Boundary:</label>
+                {{ form.boundary }}
+              </div>
+              <div class="mb-3">
+                <label for="image" class="form-label fw-bold">Image:</label>
+                {{ form.image }}
+              </div>
+              <div class="mb-3">
+                <label for="city" class="form-label fw-bold">City:</label>
+                {{ form.city }}
+              </div>
+              <div class="mb-3">
+                <label for="county" class="form-label fw-bold">County:</label>
+                {{ form.county }}
+              </div>
+              <div class="form-check mb-3">
+                {{ form.active }}
+                <label class="form-check-label fw-bold" for="active">Active</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
       </div>
-      </div>
-      </div>
-</div>
-
-
+    </div>
+  </div>
 {% endblock %}

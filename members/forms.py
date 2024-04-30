@@ -1,11 +1,38 @@
 
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm,SetPasswordForm
 from django.contrib.auth.models import User
 
 from django import forms
 
 from django.forms.widgets import PasswordInput, TextInput
 # create a new user
+
+
+class ChangePasswordForm(SetPasswordForm):
+    new_password1 = forms.CharField(
+        label="",
+        max_length=100,
+        widget=forms.PasswordInput(
+            attrs={'class': 'form-control', 'placeholder': 'Password'}),
+        required=True,
+        help_text="<span class='text-info'>Your new password must be at least 8 characters long and include both letters and numbers.</span>"
+    )
+
+    new_password2 = forms.CharField(
+        label="",
+        max_length=100,
+        widget=forms.PasswordInput(
+            attrs={'class': 'form-control', 'placeholder': 'Confirm Password'}),
+        required=True,
+        help_text="<span class='text-info'>Please enter the same password as above, for verification.</span>"
+    )
+
+    class Meta:
+        model = User
+        fields = ['new_password1', 'new_password2']
+
+
+
 
 
 class UpdateUserForm(UserChangeForm):

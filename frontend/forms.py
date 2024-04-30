@@ -9,10 +9,10 @@ class AreaForm(forms.ModelForm):
         labels = {
             'category': 'Category',
             'name': 'Location Name',
-            'boundary': 'Boundary',
             'image': 'Image',
             'city': 'City',
             'county': 'County',
+            'boundary': 'Boundary',
             'active': 'Active'
         }
         help_texts = {
