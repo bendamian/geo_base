@@ -1,19 +1,164 @@
 {% extends '../frontend/pages/base.html' %} {%load static%} 
 
-
+{% block css_links %} <link rel="stylesheet" href="style.css">{% endblock css_links %}
 {%block title%} Dashboard  {%endblock title%}
 
 {% block content %}
 <h1>Dashboard</h1>
-<div style="margin:10%; ">
-   <div class=" container  mb-3">
-    <div class="border p-4 rounded">
+
+   <div class=" container">
+    <div class="row mt-5">
+      <div class="col-md-4">
+       <div class="card">
+        <div class="card-header bg-info">
+          <h3 class="text-center text-white">Profile</h3>
+        </div>
+        <div class="card-body">
+
+          <marquee behavior="" direction="">
+           <h3 my-3> My Profiel</h3>
+          </marquee>
+        </div>
+       </div>
+
+      </div>
+
+
+
+
+
+       <div class="col-md-8">
+       <div class="card">
+        <div class="card-header bg-info">
+          <h3 class="text-center text-white">Dashbord</h3>
+        </div>
+        
+        <div class="card-body">
+       <div class="row">
+        <div class="col-md-3">
+          <a class="text-decoration-none text-dark"    href="">
+            <div class="card dash-card shadow text-center p-3">
+              <h4>Sample one  </h4>
+              <div>
+              <i class="bi bi-facebook text-info display-3"></i>
+              </div>
+            </div>
+          </a>
+          </div>
+
+         <div class="col-md-3">
+          <a class="text-decoration-none text-dark"    href="">
+            <div class="card dash-card shadow text-center p-3">
+              <h4>Sample tow </h4>
+              <div>
+              <i class="bi bi-facebook text-info display-3"></i>
+              </div>
+            </div>
+          </a>
+          </div>
+
+
+         <div class="col-md-3">
+          <a class="text-decoration-none text-dark"    href="">
+            <div class="card dash-card shadow text-center p-3">
+              <h4>Sample three </h4>
+              <div>
+              <i class="bi bi-facebook text-info display-3"></i>
+              </div>
+            </div>
+          </a>
+          </div> 
+
+          <div class="col-md-3">
+          <a class="text-decoration-none text-dark"    href="">
+            <div class="card dash-card shadow text-center p-3">
+              <h4>Sample four </h4>
+              <div>
+              <i class="bi bi-facebook text-info display-3"></i>
+              </div>
+            </div>
+          </a>
+          </div> 
+
+        </div>
+       </div>
+          
+          <div class="card-body">
+       <div class="row">
+        <div class="col-md-3">
+          <a class="text-decoration-none text-dark"    href="">
+            <div class="card dash-card shadow text-center p-3">
+              <h4>Sample one  </h4>
+              <div>
+              <i class="bi bi-facebook text-info display-3"></i>
+              </div>
+            </div>
+          </a>
+          </div>
+
+         <div class="col-md-3">
+          <a class="text-decoration-none text-dark"    href="">
+            <div class="card dash-card shadow text-center p-3">
+              <h4>Sample tow </h4>
+              <div>
+              <i class="bi bi-facebook text-info display-3"></i>
+              </div>
+            </div>
+          </a>
+          </div>
+
+
+         <div class="col-md-3">
+          <a class="text-decoration-none text-dark"    href="">
+            <div class="card dash-card shadow text-center p-3">
+              <h4>Sample three </h4>
+              <div>
+              <i class="bi bi-facebook text-info display-3"></i>
+              </div>
+            </div>
+          </a>
+          </div> 
+
+          <div class="col-md-3">
+          <a class="text-decoration-none text-dark"    href="">
+            <div class="card dash-card shadow text-center p-3">
+              <h4>Sample four </h4>
+              <div>
+              <i class="bi bi-facebook text-info display-3"></i>
+              </div>
+            </div>
+          </a>
+          </div> 
+
+        </div>
+       </div>
+        
+        </div>
+        
+        
+
+
+
+
+       </div>
+      </div>
+
+    
+          
+        </div>
+       </div>
+      </div>
+ 
+
+
+
+
  
    
       </div>
       </div>
       </div>
-</div>
+
 
 
 {% endblock %}
