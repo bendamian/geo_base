@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'backend',
     'frontend',
     'members',
+    'dashboard'
 ]
 
 MIDDLEWARE = [
