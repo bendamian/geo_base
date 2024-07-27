@@ -1,15 +1,35 @@
-<h1>Dashboard</h1>
+{% load static %}
 
    <div class=" container">
     <div class="row mt-5">
       <div class="col-md-4">
       <div class="card " style="width: 18rem;">
-      <img class="card-img-top" src="..." alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Profile</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
+        
+      
+                
+                   
+                        {% if profiles.profile_image %}
+                            <img class="card-img-top" src="{{ profiles.profile_image.url }}" alt="{{ profile.user.username }}">
+                        {% else %}
+                            <img class="card-img-top" src="{% static 'images/default_profile_image.png' %}" alt="Default Profile Image">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ profiles.user.username }}</h5>
+                            <p class="card-text">{{ profiles.profile_bio }}</p>
+                            {% if profile.facebook_link %}
+                                <a href="{{ profiles.facebook_link }}" class="btn btn-primary">Facebook</a>
+                            {% endif %}
+                            <p class="card-text mt-2"><small class="text-muted">Last modified: {{ profiles.date_modified }}</small></p>
+                            <a href="{% url 'members:update_user' %}" class="btn btn-primary">Update User</a>
+                        </div>
+                        
+                    
+                
+
+      
+
+    
+
       </div>
 
       </div>
@@ -27,7 +47,7 @@
         <div class="card-body">
        <div class="row">
         <div class="col-md-3">
-          <a class="text-decoration-none text-dark"    href="">
+          <a class="text-decoration-none text-dark"    href="{% url 'frontend_app:add_area' %}">
             <div class="card dash-card shadow text-center p-3">
               <h4>Sample one  </h4>
               <div>

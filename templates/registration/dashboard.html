@@ -1,6 +1,6 @@
 {% extends '../frontend/pages/base.html' %} {%load static%} 
 
-{% block css_links %} <link rel="stylesheet" href="style.css">{% endblock css_links %}
+{% block css_links %} <link href="{% static 'css/style.css' %}" rel="stylesheet">{% endblock css_links %}
 {%block title%} Dashboard  {%endblock title%}
 
 {% block content %}

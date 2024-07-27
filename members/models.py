@@ -10,7 +10,7 @@ from django.db.models.signals import post_save
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     date_modified = models.DateTimeField(User, auto_now=True)
-    profile_image = models.ImageField(null=True, blank=True, upload_to="images/")
+    profile_image = models.ImageField(null=True, blank=True, upload_to="images/", default="images/default_profile_image.png")
     profile_bio = models.CharField(null=True, blank=True, max_length=500)
     facebook_link = models.CharField(null=True, blank=True, max_length=100)
 
