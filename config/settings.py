@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'backend',
     'frontend',
     'members',
-    'dashboard'
+    'dashboard',
+    'woodland'
+
 ]
 
 MIDDLEWARE = [

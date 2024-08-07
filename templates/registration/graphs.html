@@ -1,0 +1,115 @@
+{% load static %}
+<!--Graphs-->
+
+
+<div class="container ">
+<div class="row ">
+  <!--chart one -->
+<div class="col-md-6">
+  <div class="card p-3 m-4">
+
+
+
+
+<div>
+  <canvas id="barChart" style="width:100%; max-width:600px; height:400px;"></canvas>
+</div>
+<script>
+
+ const ctx = document.getElementById('barChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+</script>
+</div>
+</div>
+<!--end of chart one -->
+<!--chart two -->
+<div class="col-md-6">
+  <div class="card p-3 m-4">
+  
+<canvas id="piChart"  style="width:100%; max-width:600px; height:400px;"></canvas>
+
+<script>
+ 
+       
+var xValues = [{% for category in  catergory_list %} '{{ category }}', {% endfor %}]
+var yValues =[{% for number in  catergory_number %} '{{  number }}', {% endfor %}]
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("piChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Woodland Wildlife"
+    }
+  }
+});
+
+</script>
+
+
+  </div>
+
+
+
+</div>
+<!--end of chart two -->
+</div>
+
+
+</div>
+
+
+
+
+
+
+  
+<div class="col-md-6">
+
+<!--chart two -->
+<!--end of chart two -->
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- End Graphs-->
