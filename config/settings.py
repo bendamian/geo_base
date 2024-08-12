@@ -33,13 +33,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_gis',
+    'crispy_forms',
     "corsheaders",
     'djoser',
     'backend',
     'frontend',
     'members',
     'dashboard',
-    'woodland'
+    'woodland',
 
 ]
 
@@ -116,6 +117,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 LANGUAGE_CODE = 'en-us'
 

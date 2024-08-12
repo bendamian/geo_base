@@ -17,6 +17,7 @@ urlpatterns = [
     #path('members/', include('django.contrib.auth.urls')),   
     path('dashboard/',dashboard,name='dashboard'),
     path('members/', include('members.urls', namespace='members')),
+    path('woodland/', include('woodland.urls'),name='woods'),
     
       
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

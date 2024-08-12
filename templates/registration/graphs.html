@@ -16,26 +16,29 @@
 </div>
 <script>
 
- const ctx = document.getElementById('barChart');
+const ctx = document.getElementById('barChart');
 
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
+const aValues = [{% for category in  catergory_list %} '{{ category }}', {% endfor %}];
+const bValues = [{% for number in  catergory_number %} '{{  number }}', {% endfor %}];
+const bColors = ["red", "green","blue","orange","brown"];
+
+new Chart("barChart", {
+  type: "bar",
+  data: {
+    labels: aValues,
+    datasets: [{
+      backgroundColor: bColors,
+      data: bValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Woodland Wildlife"
     }
-  });
+  }
+});
 
 </script>
 </div>
