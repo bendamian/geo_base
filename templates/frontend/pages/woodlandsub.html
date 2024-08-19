@@ -74,9 +74,9 @@
                     <td>{{ woodland.count }}</td>
                     <td>
                         <a class="btn btn-info btn-sm mr-2"
-                            href="">Edit</a>
+                            href="{%url      'wood_land:update_species' woodland.id%}">Edit</a>
                         <a class="btn btn-danger btn-sm ml-2"
-                            href="">Delete</a>
+                            href="{%url      'wood_land:remove_species' woodland.id%}">Delete</a>
                     </td>
                 </tr>
                 {% endfor %}

@@ -7,8 +7,9 @@ from woodland.models import Woodland
 
 # Create your views here.
 
-
-@login_required(login_url='/members/login_user/')
+#members is in config namespace
+#login in members app name
+@login_required(login_url='members:login')
 def dashboard(request):
     try:
         #profiles = Profile.objects.all()
@@ -36,7 +37,7 @@ def dashboard(request):
         print('Number of category list', catergory_list)
         print('Number of category number', catergory_number)
     except Profile.DoesNotExist: 
-        return redirect('/members/login_user/')
+        return redirect('members:login')
     
 
 

@@ -1,0 +1,39 @@
+{% extends './base.html' %} {%load static%} 
+
+
+{% block css_links %} <link href="{% static 'css/style.css' %}" rel="stylesheet">{% endblock css_links %}
+{%block title%} Delete Species {%endblock title%}
+
+{%block content %}  
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="border">
+                <div class="card">
+                     <div class="card-header bg-primary text-white ">
+             <h3 class="text-center mb-0">Delets Species</h3>
+            </div>
+            <div class="card-body">
+            <!-- Form start -->
+             <form method="POST">
+                <div class="alert alert-danger">
+                    <h4>Are you sure, you want to delete ?</h4>
+                </div>
+                {% csrf_token %}
+                {{ form }}
+                <a class="btn btn-secondary btn-sm" href="{%url 'wood_land:woods'   %}">Cancel</a>
+                <input class="btn btn-danger btn-sm" type="submit" value="Confirm">
+            </form>
+
+             <!--Form end-->
+            </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{%endblock content%}
