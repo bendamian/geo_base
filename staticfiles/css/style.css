@@ -1,0 +1,75 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #E6E3E3; /* More readable hex code */
+    color: #333;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    line-height: 1.6; /* Improve readability */
+    font-size: 16px; /* Set a base font size */
+}
+body * {
+    box-sizing: border-box; /* Ensure consistent box model across elements */
+}
+
+
+/* dashbord card */ 
+.dash-card:hover{
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+
+
+
+/* Profile card */ 
+.card-img-top{
+
+    width: 60%;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0,0,0,.2)
+}
+
+.card{
+  
+    padding: 1.5em  .5em .5em;
+    text-align:center;
+    border-radius: 2em;
+    box-shadow: 0 5px 10px rgba(0,0,0, .2);
+
+}
+#info-box{
+                background-color: #f9f9f9; /* Background color of the card */
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                max-width: 300px;
+                text-align: center;
+}
+
+
+
+/* Here is the CSS for creating the "//Ben" logo */
+.logo {
+    font-family: 'Courier New', monospace;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #001f3f;
+    background: linear-gradient(to right, #f0f0f0, #dcdcdc);
+    padding: 3px;
+    border-radius: 60px;
+    box-shadow: 3px 3px 6px rgba(83, 82, 82, 0.3);
+    display: inline-block;
+    text-align: center;
+}
+
+.before { 
+    color:#11b4f5;
+    
+}
+
+.after {
+    font-style: oblique;
+    color: #2273c5;
+}
+
+
