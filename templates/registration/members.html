@@ -1,0 +1,48 @@
+{% extends '../frontend/pages/base.html' %} {%load static%} 
+
+{% block css_links %} <link href="{% static 'css/style.css' %}" rel="stylesheet">{% endblock css_links %}
+{%block title%} members  {%endblock title%}
+
+{% block content %}
+{% include 'registration/upperboard.html'%}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card shadow-lg">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Members List</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover mb-0">
+                        <thead class="bg-info text-white">
+                            <tr>
+                                <th scope="col" style="width: 5%;">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for member in members %}
+                            <tr>
+                                <th scope="row">
+                                    <a class="btn btn-info btn-sm" href="{% url 'members:member_detail' member.id %}">
+                                        View
+                                    </a>
+                                </th>
+                                <td>{{ member.username }}</td>
+                                <td>{{ member.profile.phone_number }}</td>
+                                <td>{{ member.email }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

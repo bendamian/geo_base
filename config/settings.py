@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'rest_framework_gis',
     'crispy_forms',
     "corsheaders",
+    'phonenumber_field',
     'djoser',
     'backend',
     'frontend',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
 
     "corsheaders.middleware.CorsMiddleware",
@@ -135,7 +137,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [STATIC_DIR, ]
-
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

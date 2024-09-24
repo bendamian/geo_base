@@ -10,22 +10,25 @@ admin.site.unregister(Group)
 
 
 class ProfileInline(admin.StackedInline):
-	model = Profile
+    model = Profile
+    fields = ('name', 'phone_number', 'email', 'profile_bio', 'facebook_link', 'profile_image')
+    readonly_fields = ('date_modified',)
+    extra = 1  # Controls the number of empty forms displayed for adding new related objects
+    # Provides a link to change the related object in a separate form
+    show_change_link = True
 
-# Extend User Model
+    def get_queryset(self, request):
+        return super().get_queryset(request).select_related('user')
 
 
 class UserAdmin(admin.ModelAdmin):
-	model = User
-	# Just display username fields on admin page
-	fields = ["username"]
-	inlines = [ProfileInline]
+    inlines = [ProfileInline]
+    list_display = ('username', 'email', 'first_name', 'last_name')
+    search_fields = ('username', 'email', ' phone_number', 'name')
+    list_filter = ('is_active', 'is_staff')
 
 
-# Unregister initial User
+# Unregister the original User model from the admin
 admin.site.unregister(User)
-
-# Reregister User and Profile
+# Register the new User admin with Profile inline
 admin.site.register(User, UserAdmin)
-# admin.site.register(Profile)
-

@@ -1,17 +1,25 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-info">
     <div class="container">
-        <a class="navbar-brand text-white logo" href="#"><span class="before">///</span><span class="after">Test</span></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <!-- Brand Logo -->
+        <a class="navbar-brand text-white logo" href="#">
+            <span class="before">///</span><span class="after">Test</span>
+        </a>
+
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
+        <!-- Navbar Links -->
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto ">
-                <li class="nav-item  ">
-                    <a class="nav-link " href="{% url 'frontend_app:home' %}">Home</a>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'frontend_app:home' %}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'frontend_app:world' %}">World</a>
                 </li>
+                
                 {% if user.is_authenticated %}
                     {% if user.is_superuser %}
                         <li class="nav-item">
@@ -32,6 +40,7 @@
                         <a class="nav-link" href="{% url 'members:signup' %}">Signup</a>
                     </li>
                 {% endif %}
+                
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
                 </li>

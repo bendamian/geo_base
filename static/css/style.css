@@ -1,8 +1,17 @@
 body {
-    font-family: Arial, sans-serif;
-    background: rgb(230,227,227);
+    font-family: 'Arial', sans-serif;
+    background-color: #E6E3E3; /* More readable hex code */
     color: #333;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    line-height: 1.6; /* Improve readability */
+    font-size: 16px; /* Set a base font size */
 }
+body * {
+    box-sizing: border-box; /* Ensure consistent box model across elements */
+}
+
+
 /* dashbord card */ 
 .dash-card:hover{
     transform: scale(1.1);

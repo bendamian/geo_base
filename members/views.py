@@ -4,7 +4,9 @@ from django.contrib.auth.models import auth
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from .models import Profile
 from . forms import LoginForm, SignupForm ,UpdateUserForm,ChangePasswordForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -105,3 +107,19 @@ def logout_user(request):
     #auth.logout(request)
     messages.success(request, ("You Were Logged Out!"))
     return redirect("/")
+@login_required
+def member(request):
+	members = User.objects.all()
+	context ={'members':members}
+	return render(request,'registration/members.html',context)
+
+@login_required
+def member_detil(request,pk):
+	members = User.objects.get(id=pk)
+	
+	context = {'members':members,
+			
+			
+			
+			}
+	return render(request,'registration/member_detail.html',context)

@@ -1,0 +1,63 @@
+{% extends '../frontend/pages/base.html' %} {%load static%} 
+
+{% block css_links %} <link href="{% static 'css/style.css' %}" rel="stylesheet">{% endblock css_links %}
+{%block title%} Member Detail {%endblock title%}
+
+{% block content %}
+{% include 'registration/upperboard.html'%}
+<div class="container  ">
+    
+<div class="row my-4">
+    <div class="col-md-4"></div>
+    <div class="col-md-8">
+        <!--Add member detail-->
+       
+        
+<div class="card shadow-lg">
+    <div class="card-header bg-info text-white">
+        <h4 class="mb-0">Member Detail Page</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-8">
+                <h5 class="card-title">Profile Information</h5>
+                <hr>
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Name:</th>
+                            <td>{{ members.username }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Email:</th>
+                            <td>{{ members.email }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Phone:</th>
+                            <td>{{ members.profile.phone_number }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Bio data:</th>
+                            <td>{{ members.profile.profile_bio }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                {% if members.profile.profile_image %}
+                    <img class="img-fluid rounded-circle" src="{{ members.profile.profile_image.url }}" alt="Profile Image">
+                {% else %}
+                    <img class="img-fluid rounded-circle" src="{% static 'images/default_profile_image.png' %}" alt="Default Profile Image">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- end of detail-->
+    </div>
+
+</div>
+
+
+
+{% endblock %}

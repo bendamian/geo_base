@@ -9,6 +9,9 @@ urlpatterns = [
     path('logout/',views.logout_user, name='logout'),
     path('update_user/', views.update_user, name='update_user'),
     path('update_password/', views.update_password, name='update_password'),
+    path('members/', views.member, name="member_page"),
+    path('members/detail/<int:pk>/', views.member_detil, name="member_detail"),
+
     
     #path('world/', views.world_view, name= 'world'),
     #path('area_form/',views.create_area, name= 'add_area'),
