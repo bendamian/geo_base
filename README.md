@@ -1,8 +1,5 @@
-# Geo Base
-
-## Overview
-
-**Geo Base** is a web application designed to manage and visualize geospatial data. It integrates a Django backend with a modern JavaScript frontend to provide interactive maps and data management features.
+**Geo Base** Geo Base is a web application for managing and visualising geospatial data.
+It uses a Django backend and a JavaScript frontend, with support for PostGIS-enabled PostgreSQL databases.
 
 ## Features
 
